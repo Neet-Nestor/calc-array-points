@@ -147,14 +147,3 @@ func subtractPoints(point_1 p1:[String: Int], point_2 p2:[String: Int]) -> [Stri
         return ["Error": -1]
     }
 }
-
-
-/*
- Test codes:
-print(calculate(operation: add, num_1: 15, num_2: 5))
-print(add(num_1: nil, num_2: nil))
-print(add(nums: 12, 23, 42, 21, 42))
-print(add(nums: nil))
-print(addPoints(point_1: (x: 3, y: 5), point_2: (x: 5, y: -2)))
-print(addPoints(point_1: ["z": 5, "y": 6], point_2: ["e" : 10, "y": -2]))
-*/
