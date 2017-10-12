@@ -8,44 +8,88 @@
 
 import Foundation
 
-func add(num_1: Int, num_2: Int) -> Double {
-    return Double(num_1) + Double(num_2)
+func add(num_1: Int?, num_2: Int?) -> Double {
+    if (num_1 == nil || num_2 == nil) {
+        print("Error")
+        return -1
+    } else {
+        return Double(num_1!) + Double(num_2!)
+    }
 }
 
-func subtract(num_1: Int, num_2: Int) -> Double {
-    return Double(num_1) - Double(num_2)
+func subtract(num_1: Int?, num_2: Int?) -> Double {
+    if (num_1 == nil || num_2 == nil) {
+        print("Error")
+        return -1
+    } else {
+        return Double(num_1!) - Double(num_2!)
+    }
 }
 
-func mutiply(num_1: Int, num_2: Int) -> Double {
-    return Double(num_1) * Double(num_2)
+func multiply(num_1: Int?, num_2: Int?) -> Double {
+    if (num_1 == nil || num_2 == nil) {
+        print("Error")
+        return -1
+    } else {
+        return Double(num_1!) * Double(num_2!)
+    }
 }
 
-func devide(num_1: Int, num_2: Int) -> Double {
-    return Double(num_1) / Double(num_2)
+func divide(num_1: Int?, num_2: Int?) -> Double {
+    if (num_1 == nil || num_2 == nil) {
+        print("Error")
+        return -1
+    } else {
+        return Double(num_1!) / Double(num_2!)
+    }
 }
 
-func calculate(operation:(Int, Int) -> Double, num_1: Int, num_2: Int) -> Double {
-    return Double(operation(num_1, num_2))
+func calculate(operation:(Int, Int) -> Double, num_1: Int?, num_2: Int?) -> Double {
+    if (operation == nil || num_1 == nil || num_2 == nil) {
+        print("Error")
+        return -1.0
+    } else {
+        return Double(operation(num_1!, num_2!))
+    }
 }
 
-func add(nums: Int...) -> Int {
+func add(nums: Int?...) -> Int {
     var result = 0
     for num in nums {
-        result += num
+        if (num == nil) {
+            print("Error")
+            return -1
+        } else {
+            result += num!
+        }
     }
     return result
 }
 
-func multiply(nums: Int...) -> Int {
+func multiply(nums: Int?...) -> Int {
     var result = 0
     for num in nums {
-        result *= num
+        if (num == nil) {
+            print("Error")
+            return -1
+        } else {
+            result *= num!
+        }
     }
     return result
 }
 
-func count(nums: Int...) -> Int {
-    return nums.count
+func count(nums: Int?...) -> Int {
+    var count = 0
+    for num in nums {
+        if (num == nil) {
+            print("Error")
+            return -1
+        } else {
+            count += 1
+        }
+    }
+    return count
 }
 
 func avg(nums: Int...) -> Double {
@@ -93,8 +137,12 @@ func subtractPoints(point_1 p1:[String: Int], point_2 p2:[String: Int]) -> [Stri
 }
 
 
-
+/*
+ Test codes:
 print(calculate(operation: add, num_1: 15, num_2: 5))
+print(add(num_1: nil, num_2: nil))
 print(add(nums: 12, 23, 42, 21, 42))
+print(add(nums: nil))
 print(addPoints(point_1: (x: 3, y: 5), point_2: (x: 5, y: -2)))
-print(addPoints(point_1: ["z": 5.0, "y": 6], point_2: ["e" : 10, "y": -2]))
+print(addPoints(point_1: ["z": 5, "y": 6], point_2: ["e" : 10, "y": -2]))
+*/
