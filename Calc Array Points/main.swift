@@ -106,9 +106,21 @@ func addPoints(point_1 p1:(x:Int, y:Int), point_2 p2:(x:Int, y:Int)) -> (x:Int, 
     return (xSum, ySum)
 }
 
+func addPoints(point_1 p1:(x:Double, y:Double), point_2 p2:(x:Double, y:Double)) -> (x:Double, y:Double) {
+    let xSum:Double = p1.x + p2.x
+    let ySum:Double = p1.y + p2.y
+    return (xSum, ySum)
+}
+
 func subtractPoints(point_1 p1:(x:Int, y:Int), point_2 p2:(x:Int, y:Int)) -> (x:Int, y:Int) {
     let xSum:Int = p1.x - p2.x
     let ySum:Int = p1.y - p2.y
+    return (xSum, ySum)
+}
+
+func subtractPoints(point_1 p1:(x:Double, y:Double), point_2 p2:(x:Double, y:Double)) -> (x:Double, y:Double) {
+    let xSum:Double = p1.x - p2.x
+    let ySum:Double = p1.y - p2.y
     return (xSum, ySum)
 }
 
