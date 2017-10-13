@@ -44,60 +44,94 @@ func divide(num_1: Int?, num_2: Int?) -> Double {
     }
 }
 
-func calculate(operation:(Int, Int) -> Double, num_1: Int?, num_2: Int?) -> Double {
-    if (operation == nil || num_1 == nil || num_2 == nil) {
+func calculate(operation:(Int?, Int?) -> Double, num_1: Int?, num_2: Int?) -> Double {
+    if (num_1 == nil || num_2 == nil) {
         print("Error")
         return -1.0
     } else {
-        return Double(operation(num_1!, num_2!))
+        return Double(operation(num_1, num_2))
     }
 }
 
-func add(nums: Int?...) -> Int {
-    var result = 0
-    for num in nums {
-        if (num == nil) {
-            print("Error")
-            return -1
-        } else {
-            result += num!
+func add(nums: [Int?]?) -> Double {
+    if (nums == nil) {
+        print("Error")
+        return -1.0
+    } else {
+        var result = 0.0
+        for num in nums! {
+            if (num == nil) {
+                print("Error")
+                return -1.0
+            } else {
+                result += Double(num!)
+            }
         }
+        return result
     }
-    return result
 }
 
-func multiply(nums: Int?...) -> Int {
-    var result = 0
-    for num in nums {
-        if (num == nil) {
-            print("Error")
-            return -1
-        } else {
-            result *= num!
+func multiply(nums: [Int?]?) -> Double {
+    if (nums == nil) {
+        print("Error")
+        return -1.0
+    } else {
+        var result = 0.0
+        for num in nums! {
+            if (num == nil) {
+                print("Error")
+                return -1.0
+            } else {
+                result *= Double(num!)
+            }
         }
+        return result
     }
-    return result
 }
 
-func count(nums: Int?...) -> Int {
-    var count = 0
-    for num in nums {
-        if (num == nil) {
-            print("Error")
-            return -1
-        } else {
-            count += 1
+func count(nums: [Int?]?) -> Double {
+    if (nums == nil) {
+        print("Error")
+        return -1.0
+    } else {
+        var count = 0.0
+        for num in nums! {
+            if (num == nil) {
+                print("Error")
+                return -1.0
+            } else {
+                count += 1.0
+            }
         }
+        return count
     }
-    return count
 }
 
-func avg(nums: Int...) -> Double {
-    var sum = 0
-    for num in nums {
-        sum += num
+func avg(nums: [Int?]?) -> Double {
+    if (nums == nil) {
+        print("Error")
+        return -1.0
+    } else {
+        var sum = 0.0
+        for num in nums! {
+            if (num == nil) {
+                print("Error")
+                return -1.0
+            } else {
+                sum += Double(num!)
+            }
+        }
+        return Double(sum) / Double(nums!.count)
     }
-    return Double(sum) / Double(nums.count)
+}
+
+func calcPoints(operation:([Int?]?) -> Double, nums: [Int?]?) -> Double {
+    if (nums == nil) {
+        print("Error")
+        return -1.0
+    } else {
+        return operation(nums)
+    }
 }
 
 func addPoints(point_1 p1:(x:Int, y:Int), point_2 p2:(x:Int, y:Int)) -> (x:Int, y:Int) {
